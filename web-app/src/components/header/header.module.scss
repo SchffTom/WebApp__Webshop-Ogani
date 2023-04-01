@@ -1,0 +1,80 @@
+@import "src/styles/index";
+
+.header {
+    @include bg-primary;
+
+    height: $height-header;
+
+    .row {
+        @apply mx-auto h-fit;
+
+        width: $width-base;
+
+        @include prefix-property(transform,  translateY(35%));
+
+        .col {
+            @apply inline-block relative text-sm;
+
+            &:not(:last-child)::after {
+                width: 1px;
+                height: 20px;
+                position: absolute;
+                top: 1px;
+                right: 0;
+                content: "";
+                background: black;
+                opacity: 0.1;
+            }
+
+            &-1 {
+                width: 15%;
+
+                span {
+                    @apply float-right mr-4;
+
+                    i {
+                        @apply mr-2;
+                    }
+                }
+            }
+
+            &-2 {
+                @apply relative;
+
+                width: 62%;
+
+                span:first-child {
+                    @apply float-left ml-4;
+                }
+    
+                span:last-child {
+                    @apply float-right mr-4;
+    
+                    i {
+                        @apply cursor-pointer;
+
+                        &:not(:last-child) {
+                            @apply mr-4;
+                        }
+                    }
+                }
+            }
+
+            &-3 {
+                width: 13%;
+            }
+
+            &-4 {
+                width: 10%;
+
+                span {
+                    @apply float-left ml-4 cursor-pointer;
+
+                    i {
+                        @apply mr-2;
+                    }
+                }
+            }
+        }
+    }
+}

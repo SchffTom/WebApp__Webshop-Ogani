@@ -1,0 +1,19 @@
+@mixin bg-primary {
+    @apply bg-gray-100;    
+}
+
+
+@mixin keyframes-animation($name) {
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+    @keyframes #{$name} {
+      @content;
+    }
+}
+
+
+@mixin prefix-property($name, $value) {
+    -webkit-#{$name}: $value;
+            #{$name}: $value;
+}

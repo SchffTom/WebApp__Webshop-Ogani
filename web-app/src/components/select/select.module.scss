@@ -1,0 +1,56 @@
+@import "src/styles/index";
+
+$translate-x: 0%;
+
+.select {
+    @apply w-fit mx-auto relative cursor-pointer;
+
+    top: -0.3rem;
+
+    img {
+        @apply w-6 inline-block mr-2;
+    }
+
+    .arrow {
+        @apply relative top-3 left-2;
+
+        font-size: 1.5rem;
+    }
+
+    .dropdown {
+        @include keyframes-animation(popup) {
+            0% {
+                opacity: 0;
+                @include prefix-property(transform, translate($translate-x, 50%));
+            }
+
+            100% {
+                opacity: 1;
+                @include prefix-property(transform, translate($translate-x, 0%));
+            }
+        }
+
+        @apply
+            absolute
+            top-6 left-0
+            bg-slate-900 
+        ;
+
+        @include prefix-property(transform, translateX($translate-x));
+
+        display: none;
+
+        .text {
+            @apply mx-6 my-1 block;
+    
+            color: white;
+        }
+    }
+
+    &:hover .dropdown {
+        @apply block;
+
+        animation: .3s ease-in-out normal popup;
+    }
+}
+
